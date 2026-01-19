@@ -1,42 +1,54 @@
-﻿# â° Digital Clock Simulation in Java
+# ⏰ Reloj Digital en Consola (Java)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Java" />
-  <img src="https://img.shields.io/badge/Utility-Time_Formatting-007396?style=for-the-badge" alt="Utility" />
-  <img src="https://img.shields.io/badge/Academic-1Âº_DAW_STUCOM-10B981?style=for-the-badge" alt="STUCOM" />
+  <img src="https://img.shields.io/badge/Algorithms-Time_Carry_Logic-047857?style=for-the-badge" alt="Algorithms" />
+  <img src="https://img.shields.io/badge/Academic-1º_DAW_STUCOM-10B981?style=for-the-badge" alt="STUCOM" />
 </p>
 
-> ðŸŽ“ **Academic Project Notice:** Developed as an academic practical exercise for the **1st year of Web Application Development (DAW)** at **STUCOM Pelai** (Barcelona) within the Programming Foundations module.
+> 🎓 **Proyecto Académico:** Práctica de algoritmia y estructuras de control en **Java** desarrollada por **Ignacio Breñas Muñoz** para el 1º curso de **Desarrollo de Aplicaciones Web (DAW)** en **STUCOM Pelai** (Barcelona).
 
 ---
 
-## ðŸ“Œ Overview / DescripciÃ³n General
+## Descripción de la Práctica
 
-### ðŸ‡¬ðŸ‡§ English
-A digital clock simulator and time formatting utility developed in **Java**. It demonstrates control loops, time arithmetic, digit encapsulation, and console visualization of a synchronized real-time digital clock display.
-
-### ðŸ‡ªðŸ‡¸ EspaÃ±ol
-Simulador de reloj digital y formateador de tiempo implementado en **Java**. Demuestra el manejo de bucles de control, aritmÃ©tica temporal, encapsulaciÃ³n de horas, minutos y segundos, y representaciÃ³n formateada en consola en tiempo real.
+Implementación de un reloj digital en formato de 24 horas (`HH:MM`) utilizando un array numérico de 4 posiciones `int[4]`. El programa proporciona un menú interactivo en consola para avanzar o retroceder el tiempo (tanto horas como minutos), gestionando rigurosamente los desbordamientos de acarreo horario (0 a 23 horas, 0 a 59 minutos).
 
 ---
 
-## âš™ï¸ Features
+## 🧠 Funcionamiento Interno
 
-- â±ï¸ **Time Arithmetic:** Precise incrementation handling overflow across seconds, minutes, and 24-hour cycles.
-- ðŸ“Ÿ **Standard Display Format:** Consistent HH:mm:ss digital output with zero-padding.
-- ðŸ§ª **Unit Testability:** Independent time calculations and boundary condition verification (e.g. 23:59:59 roll-over).
+### Representación en Memoria
+El reloj se representa mediante un array de dígitos:
+```java
+int[] reloj = new int[4];
+// reloj[0]: Decenas de hora (0-2)
+// reloj[1]: Unidades de hora (0-9)
+// reloj[2]: Decenas de minuto (0-5)
+// reloj[3]: Unidades de minuto (0-9)
+```
+
+### Funcionalidades del Menú
+- ⏩ **Adelantar Minutos:** Incrementa los minutos y traslada el acarreo a las horas al superar 59 minutos. Al superar las 23:59 vuelve a 00:00.
+- ⏪ **Retrasar Minutos:** Decrementa los minutos y descuenta de las horas cuando sea necesario, ciclando a 23:59 al retroceder de 00:00.
+- ⏰ **Adelantar Horas:** Incrementa horas completas con ciclo de 24h.
+- 🕒 **Retrasar Horas:** Decrementa horas completas con ciclo de 24h.
+- 🖥️ **Muestra Formateada:** Imprime siempre la hora con ceros a la izquierda en formato `HH:MM`.
 
 ---
 
-## ðŸš€ How to Run
+## 🚀 Compilación y Ejecución
 
-`ash
+```bash
+# Compilar con Maven
 mvn clean compile
-mvn exec:java -Dexec.mainClass="com.mycompany.relojdigital.RelojDigital"
-`
+
+# Ejecutar
+mvn exec:java -Dexec.mainClass="main.RelojDigital"
+```
 
 ---
 
-## ðŸ“„ License
+## 👤 Autor
 
-Distributed under the **MIT License**.
+**Ignacio Breñas Muñoz** — 1º DAW, STUCOM Pelai
